@@ -1,0 +1,131 @@
+{
+    "name": "test experiment",
+    "result": {
+        "sourceType": "SOURCE",
+        "rowLabels": [
+            "feature 1",
+            "feature 2",
+            "feature 3",
+            "feature 4",
+            "feature 5",
+            "feature 6"
+        ],
+        "colLabels": [
+            "group 1",
+            "group 2",
+            "group 3",
+            "group 4"
+        ],
+        "heading": "Important features across all groups",
+        "scores": [
+            [
+                {
+                    "prob_score": 12.98,
+                    "mean_score": 45.55
+                },
+                {
+                    "prob_score": 61.43,
+                    "mean_score": 34.68
+                },
+                {
+                    "prob_score": 87.67,
+                    "mean_score": 92.31
+                },
+                {
+                    "prob_score": 2.82,
+                    "mean_score": 5.5
+                }
+            ],
+            [
+                {
+                    "prob_score": 81.76,
+                    "mean_score": 55.66
+                },
+                {
+                    "prob_score": 16.34,
+                    "mean_score": 4.98
+                },
+                {
+                    "prob_score": 68.71,
+                    "mean_score": 93.67
+                },
+                {
+                    "prob_score": 65.34,
+                    "mean_score": 34.5
+                }
+            ],
+            [
+                {
+                    "prob_score": 2.64,
+                    "mean_score": 5.23
+                },
+                {
+                    "prob_score": 86.32,
+                    "mean_score": 76.63
+                },
+                {
+                    "prob_score": 28.67,
+                    "mean_score": 16.86
+                },
+                {
+                    "prob_score": 82.74,
+                    "mean_score": 76.92
+                }
+            ],
+            [
+                {
+                    "prob_score": 72.83,
+                    "mean_score": 55.92
+                },
+                {
+                    "prob_score": 11.03,
+                    "mean_score": 24.46
+                },
+                {
+                    "prob_score": 68.72,
+                    "mean_score": 75.46
+                },
+                {
+                    "prob_score": 82.76,
+                    "mean_score": 59.09
+                }
+            ],
+            [
+                {
+                    "prob_score": 8.18,
+                    "mean_score": 22.56
+                },
+                {
+                    "prob_score": 61.43,
+                    "mean_score": 34.68
+                },
+                {
+                    "prob_score": 77.28,
+                    "mean_score": 74.96
+                },
+                {
+                    "prob_score": 62.08,
+                    "mean_score": 45.72
+                }
+            ],
+            [
+                {
+                    "prob_score": 9.63,
+                    "mean_score": 6.98
+                },
+                {
+                    "prob_score": 22.64,
+                    "mean_score": 43.07
+                },
+                {
+                    "prob_score": 64.73,
+                    "mean_score": 57.39
+                },
+                {
+                    "prob_score": 42.71,
+                    "mean_score": 76.36
+                }
+            ]
+        ]
+    }
+}
