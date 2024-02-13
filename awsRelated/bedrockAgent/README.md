@@ -1,1 +1,0 @@
-AWS Bedrock agent functions
