@@ -6,6 +6,15 @@ Look at the additional context below to understand the result
 of the analysis and then help answer the user questions.
 """
 
+NAME_SUBGROUP_RULES = """
+Follow the instructions below to accomplish the task:
+- Look at the group characteristics inside the <group X> </group X>
+XML tags. X will be an integer.
+- For each group, propose a name that summarizes its top 3 characteristics.
+Output that name inside the same <group X> </group X> tags.
+- Explain your reasoning inside the <reasoning> </reasoning> tags.
+"""
+
 HUMAN_TEMPLATE = """
 === BEGIN CONTEXT ===
 {details}
