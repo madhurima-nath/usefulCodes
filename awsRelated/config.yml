@@ -1,0 +1,27 @@
+# aws configuration details
+aws_configuration:
+  # aws cli profile name
+  credentials_profile_name: <profile_name>
+  region_name: <aws_region>
+  # s3 bucket where data is stored
+  bucket_name: <bucket_name>
+  # path to json data file
+  raw_json_path: <filepath/filename.json>
+  # path to other data file
+  data_file: <filepath/filename.csv>
+
+  # llm model details
+  model_id: <model-id>
+  model_kwargs:
+    # will vary depending on model
+    max_tokens_to_sample: <num>
+    temperature: <num>
+    top_k: <num>
+    top_p: <num>
+    stop_sequences: ["</function_calls>"]
+
+# path to local folder used to store data
+local_filepath_configuration:
+  data_path: data/
+  json_data_filename: <jsonfilename.json>
+  additional_data_filename: <filename.csv>
