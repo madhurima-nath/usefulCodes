@@ -1,4 +1,4 @@
-from dataProcess.preprocess import DataProcess
+from preprocess.dataProcess import DataProcess
 from main import ConfigParser, get_bedrock_llm
 
 parser = ConfigParser()

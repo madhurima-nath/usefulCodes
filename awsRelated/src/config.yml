@@ -27,3 +27,5 @@ local_filepath_configuration:
   data_path: data/
   json_data_filename: <jsonfilename.json>
   additional_data_filename: <filename.csv>
+  processed_filename: <processed_filename.json>
+  summarized_filename: <summarized_filename.json>

@@ -16,7 +16,7 @@ from tools.tools import ( # user-defined modules
     GetSorteGroups,
 )
 # user-defined module for preprocessing
-from dataProcess.preprocess import DataProcess 
+from preprocess.dataProcess import DataProcess 
 
 
 
@@ -109,7 +109,7 @@ def read_config_and_execute_preprocess(datapath: str = None) -> (dict, dict):
     data_process = DataProcess(aws_config, local_filepath_config)
     data_process.download_files()
     data_process.file_preprocess()
-    processed_file = data_process.get_preprocessed_data()
+    processed_file = data_process.get_processed_data()
     return config, processed_file
 
 

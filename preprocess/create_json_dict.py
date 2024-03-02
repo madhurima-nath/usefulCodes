@@ -1,6 +1,6 @@
 from preprocess.json_preprocess import ParseJsonFunction
 
-class CreateDict:
+class CreateGroupDict:
     """
     create dict from preprocessed json data
     """
