@@ -1,7 +1,7 @@
 import json
 import os
 
-from preprocess import create_json_dict
+from dataProcess.preprocess import create_json_dict
 from extract.download import get_cloud_client, download_file
 
 class DataProcess:

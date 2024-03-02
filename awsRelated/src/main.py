@@ -15,7 +15,8 @@ from tools.tools import ( # user-defined modules
     GetAvailableGroups,
     GetSorteGroups,
 )
-from preprocess import DataProcess # user-defined module for preprocessing
+# user-defined module for preprocessing
+from dataProcess.preprocess import DataProcess 
 
 
 
