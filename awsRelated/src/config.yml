@@ -9,6 +9,8 @@ aws_configuration:
   raw_json_path: <filepath/filename.json>
   # path to other data file
   data_file: <filepath/filename.csv>
+  # path for downloaded file (could be the same name when uploaded to s3)
+  download_filepath: <filepath/download.json>
 
   # llm model details
   model_id: <model-id>
