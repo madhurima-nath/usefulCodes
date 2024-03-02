@@ -13,7 +13,7 @@ from agent.prompt_templates import (
 from tools.tools import ( # user-defined modules
     GetPrevalenceTool, 
     GetAvailableGroups,
-    GetSorteGroups,
+    GetSortedGroups,
 )
 # user-defined module for preprocessing
 from preprocess.dataProcess import DataProcess 
