@@ -73,3 +73,52 @@ def get_pdf_contents(url, search_text):
         return None
 
 
+def get_updates(df, country):
+    """
+    get all updates - links, dates,
+    topics, sub-topics etc. 
+    """
+    # filter dataframe for country
+    df_country = df[df["country"] == country]
+    df_country.reset_index(drop=True, inplace=True)
+
+    # create a dict containing all necessary details
+    # url_index = df_country["cell_value"].loc[df_country["updated_link"] == True].index.tolist()
+
+    output = {}
+    temp, temp_date, temp_url, prev_col1, prev_col2 = [], [], [], [], []
+
+    for i in range(len(df_country)):
+        country = df_country.loc[i, "country"]
+
+        # get contents of previous columns
+        if df_country.loc[i, "adj_prev_col1"]:
+            prev_col1 = df_country.loc[i, "adj_prev_col1"]
+        if df_country.loc[i, "adj_prev_col2"]:
+            prev_col2 = df_country.loc[i, "adj_prev_col2"]
+
+        # get updated dates
+        # get updated dates if in datetime format
+        if type(df_country.loc[i, "cell_value"]) == datetime.datetime:
+            temp_date.append(df_country.loc[i, "cell_value"].strftime("%Y-%m-%d"))
+        elif ( ("date" in (df_country.loc[i, "excel_comments"]))
+            and (df_country.loc[i, "update_text"]) ):
+            temp_date.append(df_country.loc[i, "update_text"])
+
+        # get updated urls
+        if ( (df_country.loc[i, "updated_link"] == True)
+            and (check_url(df_country.loc[i, "cell_value"]) == True) ):
+            temp_url.append(df_country.loc[i, "cell_value"])
+
+        # get comments
+        temp.append(df_country.loc[i, "comments"])
+        temp_comments = list(set(temp))[0]
+
+        if country not in output:
+            output[country] = {"country": country, 
+                                "url": temp_url,
+                                "prev_col1": prev_col1,
+                                "prev_col2": prev_col2,
+                                "comments": temp_comments,
+                                "date": temp_date}
+    return output
