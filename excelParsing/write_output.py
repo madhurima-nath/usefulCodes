@@ -2,7 +2,7 @@
 import extract_contents
 import datetime
 from docx import Document
-from docs.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import RGBColor
 from itertools import zip_longest, chain
 

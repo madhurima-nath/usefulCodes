@@ -210,6 +210,7 @@ def process_df(filename):
         if (df2.loc[i, "excel_column_header"] != None):
             df2.loc[i, "column_header"] = df2.loc[i, "excel_column_header"]
         elif ( (df2.loc[i, "excel_column_header"] == None)
+            # and ("date" not in df2.loc[i, "excel_column_header"])
             and (df2.loc[i, "updated_link"] == False) ):
             df2.loc[i, "column_header"] = "Updated Value (Confirm)"
         else:
