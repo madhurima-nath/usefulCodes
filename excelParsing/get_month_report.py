@@ -55,14 +55,12 @@ def parse_excel(filename):
                                                         sheet.cell(cell.row, 1).value,
                                                         (cell.comment.text.split("\n")[0].strip()),
                                                         cell.value,
+                                                        sheet.cell(cell.row, cell.column-1).value,
+                                                        sheet.cell(cell.row, cell.column-2).value,
                                                         sheet.cell(1, cell.column).value,
                                                         sheet.cell(cell.row, max_col).value]
                 # ["cell_id", "country", "excel_comments", "cell_value",
-                # "excel_column_header", "comments", "prev_col1", "prev_col2"]
-
-                if "Effective Date" in sheet.cell(1, cell.column).value:
-                    comments_dict[f"{cell.coordinate}"].extend([sheet.cell(cell.row, cell.column-1).value,
-                                                        sheet.cell(cell.row, cell.column-2).value])
+                #    "prev_col1", "prev_col2", "excel_column_header", "comments"]
 
                 # iterate through cells and extract only those hyperlinks in red
                 if cell.font.color:
