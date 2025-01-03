@@ -102,7 +102,8 @@ def get_updates(df, country):
         # if type(df_country.loc[i, "cell_value"]) == datetime.datetime:
             # temp_date.append(df_country.loc[i, "cell_value"].strftime("%Y-%m-%d"))
         if ( ("date" in (df_country.loc[i, "excel_comments"]))
-            and (df_country.loc[i, "update_text"]) ):
+            and (df_country.loc[i, "update_text"]) 
+            and ("Updates" not in df_country.loc[i, "column_header"]) ):
             temp_date.append(df_country.loc[i, "update_text"])
 
         # get updated urls
@@ -111,8 +112,7 @@ def get_updates(df, country):
             temp_url.append(df_country.loc[i, "cell_value"])
 
         # get search text in pdfs (if any)
-        if ( (type(df_country.loc[i, "cell_value"]) == str)
-            and ("Does not apply" not in df_country.loc[i, "column_header"]) ):
+        if ("Updates" in df_country.loc[i, "column_header"]):
             temp_text.append(df_country.loc[i, "update_text"])
 
         # get comments
@@ -124,7 +124,7 @@ def get_updates(df, country):
                                 "url": temp_url,
                                 "prev_col1": prev_col1,
                                 "prev_col2": prev_col2,
-                                "search_text": temp_text,
+                                "header": temp_text,
                                 "comments": temp_comments,
                                 "date": temp_date}
     return output

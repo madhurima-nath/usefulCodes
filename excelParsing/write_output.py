@@ -28,7 +28,7 @@ def word_output(df):
         try:
             if "pdf" in result[x]["url"][0]:
                 url = result[x]["url"][0]
-                search_text = result[x]["search_text"]
+                search_text = result[x]["header"]
                 result = extract_contents.get_pdf_contents(url, search_text)
         except:
             print(f"No pdfs updated for {x}. Only updated urls and/or dates.")
@@ -53,14 +53,18 @@ def word_output(df):
                 if len(value.get("url")) > 1:
                     for x in value.get("url"):
                         document.add_paragraph(x)
-                document.add_paragraph(value.get("url"))
-                document.add_paragraph("Information in Title column:")
-                document.add_paragraph(value.get("prev_col2"))
-                document.add_paragraph("Information in Sub-title column:")
-                document.add_paragraph(value.get("prev_col1"))
+                else:
+                    document.add_paragraph(value.get("url"))
+                document.add_paragraph(f"Information in Title column: {value.get('prev_col2')}")
+                document.add_paragraph(f"Information in Sub-title column: {value.get('prev_col1')}")
                 document.add_paragraph("DATE(S):")
                 for x in value.get("date"):
                     document.add_paragraph(x)
+                document.add_paragraph("Updated header:".upper())
+                if value.get("header") == []:
+                    document.add_paragraph("No updated header text.")
+                else:
+                    document.add_paragraph(value.get("header"))
 
             else:
                 document.add_paragraph("there is a misalignment between updated dates and/or links.".upper())
@@ -71,6 +75,11 @@ def word_output(df):
                 document.add_paragraph("DATE(S):")
                 for x in value.get("date"):
                     document.add_paragraph(x)
+                document.add_paragraph("Updated header:".upper())
+                if value.get("header") == []:
+                    document.add_paragraph("No updated header text.")
+                else:
+                    document.add_paragraph(value.get("header"))
                 
 
             document.add_paragraph("Comments:".upper())
