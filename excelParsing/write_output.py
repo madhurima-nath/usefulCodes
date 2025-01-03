@@ -50,6 +50,9 @@ def word_output(df):
             if len(value.get("date")) == len(value.get("url")):
                 document.add_paragraph("information on dates, links and previous columns:".upper())
                 document.add_paragraph("LINK(S):")
+                if len(value.get("url")) > 1:
+                    for x in value.get("url"):
+                        document.add_paragraph(x)
                 document.add_paragraph(value.get("url"))
                 document.add_paragraph("Information in Title column:")
                 document.add_paragraph(value.get("prev_col2"))
@@ -73,4 +76,4 @@ def word_output(df):
             document.add_paragraph("Comments:".upper())
             document.add_paragraph(f"{value.get('comments')}")
 
-    return document, result
+    return document
