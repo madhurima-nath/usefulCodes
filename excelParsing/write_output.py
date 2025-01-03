@@ -87,7 +87,7 @@ def word_output(df):
     """
 
     # create a new document
-    # document = Document()
+    document = Document()
 
     # get output
     result = {}
@@ -104,4 +104,42 @@ def word_output(df):
             print(f"No pdfs updated for {x}. Only updated urls and/or dates.")
             result = temp
 
-    return result
+        print(result)
+
+        for key, value in result.items():
+            # add country as heading
+            country = value.get("country")
+            heading = document.add_heading(country, level=1)
+            heading.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            heading.runs[0].font.color.rgb = RGBColor(255, 0, 0) # red color
+            heading.runs[0].font.underline = True # underline
+
+            # start document body
+            document.add_paragraph("Updates/Changes:".upper())
+
+            if len(value.get("date")) < len(value.get("url")):
+                pair_cols = pair_random_date_url_cols(value)
+                document.add_paragraph("information on dates, links and previous columns:".upper())
+                for x in pair_cols:
+                    document.add_paragraph(x)
+            else:
+                pair_cols = pair_equal_date_url_cols(value)
+                if len(value.get("date")) == len(pair_cols) == len(value.get("url")):
+                    document.add_paragraph("information on dates, links and previous columns:".upper())
+                    for x in pair_cols:
+                        document.add_paragraph("\n\n".join(x))
+                elif len(value.get("date")) == len(pair_cols) > len(value.get("url")):
+                    document.add_paragraph("there is a misalignment between updated dates and/or links.".upper())
+                    document.add_paragraph("or".upper())
+                    document.add_paragraph("some updates might be for dates only, not links.".upper())
+                    for x in pair_cols:
+                        document.add_paragraph("\n\n".join(x))
+                elif len(value.get("date")) == len(pair_cols):
+                    document.add_paragraph("all updates are for dates only, not links.".upper())
+                    for x in pair_cols:
+                        document.add_paragraph("\n\n".join(x))
+
+            document.add_paragraph("Comments:".upper())
+            document.add_paragraph(f"{value.get('comments')}")
+
+    return document
