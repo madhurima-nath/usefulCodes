@@ -69,7 +69,7 @@ def word_output(df):
             else:
                 if (len(value.get("date")) == 1
                     and "\n" in value.get("date")[0]):
-                    temp_date = value.get("date").split("\n")
+                    temp_date = value.get("date")[0].split("\n")
                     document.add_paragraph("LINK(S):")
                     if len(value.get("url")) > 1:
                         for x in value.get("url"):
