@@ -47,8 +47,7 @@ def word_output(df):
             # start document body
             document.add_paragraph("Updates/Changes:".upper())
 
-            if ( len(value.get("date")) == len(value.get("url"))
-                and ("\n" not in value.get("date")) ):
+            if len(value.get("date")) == len(value.get("url")):
                 document.add_paragraph("information on dates, links and previous columns:".upper())
                 document.add_paragraph("LINK(S):")
                 if len(value.get("url")) > 1:
@@ -68,7 +67,8 @@ def word_output(df):
                     document.add_paragraph(value.get("header"))
 
             else:
-                if ("\n" in value.get("date")):
+                if (len(value.get("date")) == 1
+                    and "\n" in value.get("date")[0]):
                     temp_date = value.get("date").split("\n")
                     document.add_paragraph("LINK(S):")
                     if len(value.get("url")) > 1:
@@ -77,7 +77,7 @@ def word_output(df):
                     else:
                         document.add_paragraph(value.get("url"))
                     document.add_paragraph("DATE(S):")
-                    for x in value.get("date"):
+                    for x in temp_date:
                         document.add_paragraph(x)
                     document.add_paragraph("Updated header:".upper())
                     if value.get("header") == []:
