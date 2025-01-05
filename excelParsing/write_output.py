@@ -47,7 +47,8 @@ def word_output(df):
             # start document body
             document.add_paragraph("Updates/Changes:".upper())
 
-            if len(value.get("date")) == len(value.get("url")):
+            if ( len(value.get("date")) == len(value.get("url"))
+                and ("\n" not in value.get("date")) ):
                 document.add_paragraph("information on dates, links and previous columns:".upper())
                 document.add_paragraph("LINK(S):")
                 if len(value.get("url")) > 1:
@@ -67,14 +68,35 @@ def word_output(df):
                     document.add_paragraph(value.get("header"))
 
             else:
-                document.add_paragraph("there is a misalignment between updated dates and/or links.".upper())
-                document.add_paragraph("or".upper())
-                document.add_paragraph("some updates might be for dates only, not links.".upper())
-                document.add_paragraph("LINK(S):")
-                document.add_paragraph(value.get("url"))
-                document.add_paragraph("DATE(S):")
-                for x in value.get("date"):
-                    document.add_paragraph(x)
+                if ("\n" in value.get("date")):
+                    temp_date = value.get("date").split("\n")
+                    document.add_paragraph("LINK(S):")
+                    if len(value.get("url")) > 1:
+                        for x in value.get("url"):
+                            document.add_paragraph(x)
+                    else:
+                        document.add_paragraph(value.get("url"))
+                    document.add_paragraph("DATE(S):")
+                    for x in value.get("date"):
+                        document.add_paragraph(x)
+                    document.add_paragraph("Updated header:".upper())
+                    if value.get("header") == []:
+                        document.add_paragraph("No updated header text.")
+                    else:
+                        document.add_paragraph(value.get("header"))
+                else:
+                    document.add_paragraph("there is a misalignment between updated dates and/or links.".upper())
+                    document.add_paragraph("or".upper())
+                    document.add_paragraph("some updates might be for dates only, not links.".upper())
+                    document.add_paragraph("LINK(S):")
+                    if len(value.get("url")) > 1:
+                        for x in value.get("url"):
+                            document.add_paragraph(x)
+                    else:
+                        document.add_paragraph(value.get("url"))
+                    document.add_paragraph("DATE(S):")
+                    for x in value.get("date"):
+                        document.add_paragraph(x)
                 document.add_paragraph("Updated header:".upper())
                 if value.get("header") == []:
                     document.add_paragraph("No updated header text.")
