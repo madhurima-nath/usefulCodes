@@ -99,12 +99,13 @@ def get_updates(df, country):
 
         # get updated dates
         # get updated dates if in datetime format
-        # if type(df_country.loc[i, "cell_value"]) == datetime.datetime:
-            # temp_date.append(df_country.loc[i, "cell_value"].strftime("%Y-%m-%d"))
-        if ( ("date" in (df_country.loc[i, "excel_comments"]))
-            and (df_country.loc[i, "update_text"]) 
-            and ("Updates" not in df_country.loc[i, "column_header"]) ):
-            temp_date.append(df_country.loc[i, "update_text"])
+        if type(df_country.loc[i, "cell_value"]) == datetime.datetime:
+            temp_date.append(df_country.loc[i, "cell_value"].strftime("%Y-%m-%d"))
+        else:
+            if ( ("date" in (df_country.loc[i, "excel_comments"]))
+                and (df_country.loc[i, "update_text"]) 
+                and ("Updates" not in df_country.loc[i, "column_header"]) ):
+                temp_date.append(df_country.loc[i, "update_text"])
 
         # get updated urls
         if ( (df_country.loc[i, "updated_link"] == True)
