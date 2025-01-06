@@ -1,4 +1,4 @@
-# Create Monthly Word Documents from Excel Reports
+# Create Word Documents from Excel Reports
 This codebase is a framework to parse Excel data
 and produce Word document as output. 
 The data here is dummy, and do not correspond to actual real data. 
