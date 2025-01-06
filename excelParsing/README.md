@@ -3,7 +3,7 @@ This codebase is a framework to parse Excel data
 and produce Word document as output. 
 The data here is dummy, and do not correspond to actual real data. 
 
-This is intakes the excel reports 
+This final notebook intakes the excel reports 
 which have information regarding
 changes/updates and creates an output Word document.
 The Excel file has information on updates made on either on
