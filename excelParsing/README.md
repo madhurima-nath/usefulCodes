@@ -43,7 +43,7 @@ The links in the Word document are not clickable
 (need to update that later).
 
 
-## Python functions used (#python-functions-used)
+## Python functions used
 This section describes the functions used in the codebase.
 - notebook `parse.ipynb`: takes filename as input (Excel files)
 and generates the output (Word documents) containing the
