@@ -79,6 +79,6 @@ dates, information on previous columns etc. for any country
 marked in red (i.e., with updates).
 
 ### write output document
-- file `wite_output.py` contains function to generate output
+- file `write_output.py` contains function to generate output
 document.
 - function `word_output(df)`: writes the output in a Word document.
