@@ -19,7 +19,7 @@ is generated in `\output` folder.
 There are sample monthly reports, June & July as examples.
 There are multiple python scripts which parse the information
 from Excel. The details of the functions used are described
-in section [Python functions used](#python-function-used).
+in section **Python functions used**.
 
 
 ### Steps to identify updates
